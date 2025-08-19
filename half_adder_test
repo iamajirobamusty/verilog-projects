@@ -1,0 +1,62 @@
+#! /usr/bin/vvp
+:ivl_version "10.3 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x55f532c66170 .scope module, "tb_half_adder" "tb_half_adder" 2 1;
+ .timescale 0 0;
+v0x55f532c9a090_0 .var "A", 0 0;
+v0x55f532c9a150_0 .var "B", 0 0;
+v0x55f532c9a220_0 .net "carry", 0 0, L_0x55f532c9a550;  1 drivers
+v0x55f532c9a320_0 .net "sum", 0 0, L_0x55f532c9a3f0;  1 drivers
+S_0x55f532c86c30 .scope module, "dut" "half_adder" 2 5, 3 1 0, S_0x55f532c66170;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A"
+    .port_info 1 /INPUT 1 "B"
+    .port_info 2 /OUTPUT 1 "sum"
+    .port_info 3 /OUTPUT 1 "carry"
+L_0x55f532c9a3f0 .functor XOR 1, v0x55f532c9a090_0, v0x55f532c9a150_0, C4<0>, C4<0>;
+L_0x55f532c9a550 .functor AND 1, v0x55f532c9a090_0, v0x55f532c9a150_0, C4<1>, C4<1>;
+v0x55f532c86e20_0 .net "A", 0 0, v0x55f532c9a090_0;  1 drivers
+v0x55f532c99df0_0 .net "B", 0 0, v0x55f532c9a150_0;  1 drivers
+v0x55f532c99eb0_0 .net "carry", 0 0, L_0x55f532c9a550;  alias, 1 drivers
+v0x55f532c99f50_0 .net "sum", 0 0, L_0x55f532c9a3f0;  alias, 1 drivers
+    .scope S_0x55f532c66170;
+T_0 ;
+    %vpi_call 2 13 "$display", "A B | SUM CARRY" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55f532c9a090_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55f532c9a150_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 15 "$display", "A=%b B=%b SUM=%b CARRY=%b", v0x55f532c9a090_0, v0x55f532c9a150_0, v0x55f532c9a320_0, v0x55f532c9a220_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55f532c9a090_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55f532c9a150_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 16 "$display", "A=%b B=%b SUM=%b CARRY=%b", v0x55f532c9a090_0, v0x55f532c9a150_0, v0x55f532c9a320_0, v0x55f532c9a220_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55f532c9a090_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55f532c9a150_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 17 "$display", "A=%b B=%b SUM=%b CARRY=%b", v0x55f532c9a090_0, v0x55f532c9a150_0, v0x55f532c9a320_0, v0x55f532c9a220_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55f532c9a090_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55f532c9a150_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 18 "$display", "A=%b B=%b SUM=%b CARRY=%b", v0x55f532c9a090_0, v0x55f532c9a150_0, v0x55f532c9a320_0, v0x55f532c9a220_0 {0 0 0};
+    %vpi_call 2 20 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_half_adder.v";
+    "half_adder.v";

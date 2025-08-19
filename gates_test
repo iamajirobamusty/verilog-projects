@@ -1,0 +1,84 @@
+#! /usr/bin/vvp
+:ivl_version "10.3 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x5644c87c9680 .scope module, "tb_basic_gates" "tb_basic_gates" 2 1;
+ .timescale 0 0;
+v0x5644c87defe0_0 .var "A", 0 0;
+v0x5644c87df0a0_0 .net "AND_out", 0 0, L_0x5644c87b7b80;  1 drivers
+v0x5644c87df140_0 .var "B", 0 0;
+v0x5644c87df1e0_0 .net "NAND_out", 0 0, L_0x5644c87df9d0;  1 drivers
+v0x5644c87df280_0 .net "NOR_out", 0 0, L_0x5644c87dfaf0;  1 drivers
+v0x5644c87df320_0 .net "NOTA_out", 0 0, L_0x5644c87df750;  1 drivers
+v0x5644c87df3f0_0 .net "OR_out", 0 0, L_0x5644c87b7bf0;  1 drivers
+v0x5644c87df4c0_0 .net "XNOR_out", 0 0, L_0x5644c87dfd80;  1 drivers
+v0x5644c87df590_0 .net "XOR_out", 0 0, L_0x5644c87dfc00;  1 drivers
+S_0x5644c87c9800 .scope module, "uut" "basic_gates" 2 6, 3 1 0, S_0x5644c87c9680;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A"
+    .port_info 1 /INPUT 1 "B"
+    .port_info 2 /OUTPUT 1 "AND_out"
+    .port_info 3 /OUTPUT 1 "OR_out"
+    .port_info 4 /OUTPUT 1 "NOTA_out"
+    .port_info 5 /OUTPUT 1 "NAND_out"
+    .port_info 6 /OUTPUT 1 "NOR_out"
+    .port_info 7 /OUTPUT 1 "XOR_out"
+    .port_info 8 /OUTPUT 1 "XNOR_out"
+L_0x5644c87b7b80 .functor AND 1, v0x5644c87defe0_0, v0x5644c87df140_0, C4<1>, C4<1>;
+L_0x5644c87b7bf0 .functor OR 1, v0x5644c87defe0_0, v0x5644c87df140_0, C4<0>, C4<0>;
+L_0x5644c87df750 .functor NOT 1, v0x5644c87defe0_0, C4<0>, C4<0>, C4<0>;
+L_0x5644c87df8a0 .functor AND 1, v0x5644c87defe0_0, v0x5644c87df140_0, C4<1>, C4<1>;
+L_0x5644c87df9d0 .functor NOT 1, L_0x5644c87df8a0, C4<0>, C4<0>, C4<0>;
+L_0x5644c87dfa40 .functor OR 1, v0x5644c87defe0_0, v0x5644c87df140_0, C4<0>, C4<0>;
+L_0x5644c87dfaf0 .functor NOT 1, L_0x5644c87dfa40, C4<0>, C4<0>, C4<0>;
+L_0x5644c87dfc00 .functor XOR 1, v0x5644c87defe0_0, v0x5644c87df140_0, C4<0>, C4<0>;
+L_0x5644c87dfd10 .functor XOR 1, v0x5644c87defe0_0, v0x5644c87df140_0, C4<0>, C4<0>;
+L_0x5644c87dfd80 .functor NOT 1, L_0x5644c87dfd10, C4<0>, C4<0>, C4<0>;
+v0x5644c8792110_0 .net "A", 0 0, v0x5644c87defe0_0;  1 drivers
+v0x5644c87de5f0_0 .net "AND_out", 0 0, L_0x5644c87b7b80;  alias, 1 drivers
+v0x5644c87de6b0_0 .net "B", 0 0, v0x5644c87df140_0;  1 drivers
+v0x5644c87de750_0 .net "NAND_out", 0 0, L_0x5644c87df9d0;  alias, 1 drivers
+v0x5644c87de810_0 .net "NOR_out", 0 0, L_0x5644c87dfaf0;  alias, 1 drivers
+v0x5644c87de920_0 .net "NOTA_out", 0 0, L_0x5644c87df750;  alias, 1 drivers
+v0x5644c87de9e0_0 .net "OR_out", 0 0, L_0x5644c87b7bf0;  alias, 1 drivers
+v0x5644c87deaa0_0 .net "XNOR_out", 0 0, L_0x5644c87dfd80;  alias, 1 drivers
+v0x5644c87deb60_0 .net "XOR_out", 0 0, L_0x5644c87dfc00;  alias, 1 drivers
+v0x5644c87dec20_0 .net *"_s10", 0 0, L_0x5644c87dfa40;  1 drivers
+v0x5644c87ded00_0 .net *"_s16", 0 0, L_0x5644c87dfd10;  1 drivers
+v0x5644c87dede0_0 .net *"_s6", 0 0, L_0x5644c87df8a0;  1 drivers
+    .scope S_0x5644c87c9680;
+T_0 ;
+    %vpi_call 2 18 "$monitor", "A=%B B=%B | AND=%B OR=%B NOTA=%B NAND=%B NOR=%B XOR=%B XNOR=%B", v0x5644c87defe0_0, v0x5644c87df140_0, v0x5644c87df0a0_0, v0x5644c87df3f0_0, v0x5644c87df320_0, v0x5644c87df1e0_0, v0x5644c87df280_0, v0x5644c87df590_0, v0x5644c87df4c0_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5644c87defe0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5644c87df140_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5644c87defe0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5644c87df140_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5644c87defe0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5644c87df140_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5644c87defe0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5644c87df140_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 27 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_basic_gates.v";
+    "basic_gates.v";
